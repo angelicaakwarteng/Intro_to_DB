@@ -44,6 +44,18 @@ try:
     mydb_cursor.execute(creation)
     my_db.commit()
 
+    #creating tables if they don't exist
+    author_table = 'CREATE TABLE IF NOT EXISTS Authors (author_id INT PRIMARY Key, author_name VARCHAR(215)'
+    mydb_cursor.execute(author_table)
+    my_db.commit()
+
+    book_table = 'CREATE TABLE IF NOT EXISTS Books (book_id INT PRIMARY kEY, title VARCHAR(130), author_id INT,price DOUBLE,publication_date DATE,FOREIGN Key (author_id) REFERENCES Authors (author_id)'
+    mydb_cursor.execute(book_table)
+    my_db.commit()
+
+    customer_table = 'CREATE TABLE IF NOT EXISTS Customers (customer_id INT PRIMARY KEY, customer_name VARCHAR(215),email VARCHAR(215),address TEXT)'
+    mydb_cursor.execute(customer_table)
+    my_db.commit()
 
 except mysql.connector.Error as err:
     print(f"Failed to connect: {err}")
