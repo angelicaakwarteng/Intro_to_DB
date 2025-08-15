@@ -39,6 +39,12 @@ try:
     mydb_cursor = my_db.cursor()
     print("Connected to database 'alx_book_store' successfully!")
 
+    #creating a new database if it does not exist.
+    creation = 'CREATE DATABASE IF NOT EXISTS alx_book_store'
+    mydb_cursor.execute(creation)
+    my_db.commit()
+
+
 except mysql.connector.Error as err:
     print(f"Failed to connect: {err}")
 
