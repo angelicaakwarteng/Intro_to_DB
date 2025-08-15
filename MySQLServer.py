@@ -65,3 +65,5 @@ finally:
         mydb_cursor.close()
     if 'my_db' in locals() and my_db.is_connected():
         my_db.close()
+
+
