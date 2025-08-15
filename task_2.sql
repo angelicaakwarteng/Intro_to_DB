@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Orders (
 order_id INT Primary KEY,
 customer_id INT,
 order_date DATE,
-Foreign Key(customer_id) REFERENCES Customers (customer_id)
+Foreign Key(customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE IF NOT EXISTS Order_Details (
